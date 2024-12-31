@@ -33,6 +33,13 @@ a:hover {
 }
 
 
+a::after {
+    content: url(../sources/icons/box-arrow-up-right.svg);
+    margin: 0.5rem;
+    
+}
+
+
 nav {
     background-color: #2F3439;
     padding: 1rem 2rem;
@@ -199,4 +206,8 @@ b::selection {
 .top {
     background-color: #282C34;
     color: #FFA07A;
+}
+
+.top::after, #spn::after, #home a::after{
+    content: none;
 }
