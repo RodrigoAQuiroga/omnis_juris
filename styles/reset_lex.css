@@ -12,6 +12,7 @@ body {
 
 header {
     color: #FFA07A;
+    padding: 2rem;
     text-align: center;
 }
 
@@ -46,10 +47,12 @@ nav h3 {
     color: #FFA07A;
     text-align: center;
 }
-nav a{
+
+nav a {
     margin: 0.5rem;
     display: block;
 }
+
 #home {
     position: sticky;
     top: 0;
@@ -68,7 +71,8 @@ main {
     margin-bottom: 10rem;
 }
 
-main p, main span {
+main p,
+main span {
     text-indent: 1.5rem;
     line-height: 1.8rem;
     padding: 1rem 2rem;
@@ -91,6 +95,7 @@ footer {
     background-color: #2F3439;
     width: 100%;
     overflow-x: auto;
+   
 
 }
 
@@ -108,6 +113,33 @@ footer a {
     text-wrap: nowrap;
     margin: 1rem;
 }
+
+#buscador {
+    flex-direction: column;
+    padding: 0;
+    margin: 0 1rem
+}
+
+input {
+    padding: 0.3rem 1rem;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid 2px #61AFEF;
+    text-align: center
+}
+input::placeholder{
+    color: #f3f5fc;    
+}
+
+#spn {
+    color: #FFA07A;
+    padding: 0 1rem;
+    margin: 0;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+
 
 #container {
     border-left: solid 1px #FFA07A;
@@ -142,31 +174,29 @@ h3:target::before,
     padding-top: 1.5rem;
 }
 
-span{
+span {
     color: #FFA07A;
-    font-weight: bold;    
+    font-weight: bold;
     display: block;
     font-style: italic;
 }
 
-span::before{
+span::before {
     content: "!!! - ";
-    font-size: larger;   
+    font-size: larger;
 
 }
 
-p::selection, span::selection, b::selection{
+p::selection,
+span::selection,
+b::selection {
     color: #FFA07A;
     background-color: #2F3439;
 }
 
-input{
-    padding: 0.5rem 1rem;
-    text-align: center
 
-}
 
-.top{
+.top {
     background-color: #282C34;
     color: #FFA07A;
 }

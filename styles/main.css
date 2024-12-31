@@ -188,11 +188,8 @@ h3 img{
 }
 
 
-
-a::after{   
-    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwElEQVR4nGNgIAMkrnu/NXH9uzMoeN37J4nr3/8nxzxMCza80UpY9/4iyFCKDUva8FE9Yf37C0lr3+qAXEoVw+I2vtUGuxRkYOL698cxwgMPTlj//ljsuo/CyeveaIIMS173RhPudYiBpDsT5LLEde/Ow1xGkYHILova8kEQWS5h3bvVJBkIMgTkMpg3Qd5nQAfEGojNm1j1JhJpYOL695Pj17zWIKg3kYK0M2ogBIyGIUmAXsmGtOILFb8/jm4gACQv/UPA1aqrAAAAAElFTkSuQmCC");
-    margin-left: 1rem;
-   
- 
+a::after {
+    content: url(../sources/icons/box-arrow-up-right.svg);
+    margin: 0.5rem;
+    
 }
-
