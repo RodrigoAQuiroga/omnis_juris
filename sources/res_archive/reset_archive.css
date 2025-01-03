@@ -56,7 +56,7 @@ summary:hover {
 }
 
 summary::before {
-    content: url(../icons/search\ copy.svg);
+    content:">";
     margin: 0.5rem;
 }
 

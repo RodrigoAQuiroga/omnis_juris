@@ -132,7 +132,8 @@ input {
     background-color: inherit;
     border: none;
     border-bottom: solid 2px #61AFEF;
-    text-align: center
+    text-align: center;
+    color: #f3f5fc;
 }
 input::placeholder{
     color: #f3f5fc;    

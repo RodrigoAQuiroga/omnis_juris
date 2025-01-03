@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="/sources/icons/icons8-temis-96 (1).png" type="image/x-icon">
+    <link rel="stylesheet" href="reset_archive.css">
+    <title>Introducción al Derecho</title>
+
+    <style>
+        #biblio {
+            width: 80%;
+            height: 60dvh;
+            display: block;
+            margin: 1rem auto;
+
+        }   
+
+        #editor {
+            width: 80%;
+            height: 80vh;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+        }
+
+        main {
+            padding: 1rem;
+
+        }
+
+        ol {
+            list-style: none;
+        }
+
+        #tituloInput {
+            width: 90dvw;
+
+            display: block;
+            background-color: #2F3439;
+            color: #FFA07A;
+            font-size: larger;
+            margin: 1rem auto;
+            border: none;
+            border-bottom: solid 2px #61AFEF;
+
+        }
+
+        #miInput {
+            width: 90dvw;
+            height: 20rem;
+            display: block;
+            background-color: inherit;
+            color: #FFA07A;
+            font-size: larger;
+            margin: 1rem auto;
+            border: none;
+            border-bottom: solid 2px #FFA07A;
+            border-top: solid 1px #FFA07A;
+        }
+
+        button {
+            display: block;
+            margin: 1rem auto;
+            padding: 1rem 2rem;
+            background-color: #2F3439;
+            color: #61AFEF;
+            border: none;
+            border-bottom: solid 1px #61AFEF;
+            border-radius: 0 0.5rem;
+            width: 50dvw;
+            cursor: pointer;
+        }
+        .linksto{
+            display: block;
+            margin: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="inicio">
+        <h1>Introducción al Derecho</h1>
+        <h2>Parte general</h2>
+    </header>
+    <div id="home">
+        <a href="../../index.html">Volver a la pagina principal</a>
+    </div>
+    <main>
+        <article>
+            <h3>Bibliografía</h3>
+<details>
+    <summary>Introducción al Análisis del Derecho - Carlos Nino</summary>
+    <a class="linksto" href="https://drive.google.com/file/d/1EztRQWJUSSyelPnzudzcwo0u27UjX8cB/view?usp=sharing">Link al drive</a>
+    <hr>
+            <iframe id="biblio" src="/sources/res_archive/Introducción al Análisis del Derecho - Nino.pdf#navpanes=0" allow="autoplay"></iframe>
+        </details>
+          
+        </article>
+        <article>
+            <details>
+                <summary>WinGPT</summary>
+                <a class="linksto" href="https://wingpt.vercel.app/">Link al ChatGPT</a>
+                <iframe src="https://wingpt.vercel.app/" frameborder="0" width="100%" height="500"></iframe>
+            </details>
+        </article>
+        
+          
+
+        
+        <article>
+            <h3>Anotador</h3>
+            <input id="tituloInput" type="text" placeholder="Escriba el título...">
+            <textarea id="miInput" placeholder="Escriba su nota..."></textarea>
+            <button onclick="guardarNota()">Guardar nota</button>
+            <ol id="listaNotas"></ol>
+            <button onclick="cargarNota()">Cargar nota</button>
+            <button onclick="borrarNota()">Borrar nota</button>
+        </article>
+      
+    </main>
+
+
+    <script>
+        var notas = JSON.parse(localStorage.getItem("notas")) || [];
+
+        function guardarNota() {
+            var titulo = document.getElementById("tituloInput").value;
+            var texto = document.getElementById("miInput").value;
+            var fecha = new Date();
+
+            if (titulo === "") {
+                alert("El título es un campo requerido");
+                return;
+            }
+
+            var nota = { titulo: titulo, texto: texto, fecha: fecha.toLocaleDateString() };
+            notas.push(nota);
+            localStorage.setItem("notas", JSON.stringify(notas));
+            mostrarNotas();
+        }
+
+        function mostrarNotas() {
+            var listaNotas = document.getElementById("listaNotas");
+            listaNotas.innerHTML = "";
+            for (var i = 0; i < notas.length; i++) {
+                var nota = notas[i];
+                var elementoLista = document.createElement("li");
+                elementoLista.textContent = nota.fecha + " - " + "Título (" + nota.titulo + ") : " + nota.texto;
+                listaNotas.appendChild(elementoLista);
+            }
+        }
+
+        function cargarNota() {
+            var titulo = prompt("Ingrese el título de la nota que desea cargar");
+            for (var i = 0; i < notas.length; i++) {
+                if (notas[i].titulo === titulo) {
+                    var nota = notas[i];
+                    document.getElementById("tituloInput").value = nota.titulo;
+                    document.getElementById("miInput").value = nota.texto;
+                    return;
+                }
+            }
+            alert("Nota no encontrada");
+        }
+
+
+        function borrarNota() {
+            var titulo = prompt("Ingrese el título de la nota que desea borrar");
+            for (var i = 0; i < notas.length; i++) {
+                if (notas[i].titulo === titulo) {
+                    notas.splice(i, 1);
+                    localStorage.setItem("notas", JSON.stringify(notas));
+                    mostrarNotas();
+                    return;
+                }
+            }
+            alert("Nota no encontrada");
+        }
+
+        window.onload = function () {
+            mostrarNotas();
+        }
+
+
+        
+    </script>
+
+</body>
+
+</html>
